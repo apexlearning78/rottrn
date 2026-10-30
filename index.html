@@ -25,6 +25,13 @@
                     <p id="resultText"></p>
                 </div>
             </div>
+
+            <div class="result-section dark-result" id="darkResultSection">
+                <div class="result-box dark-box">
+                    <h2 class="dark-heading">The Hidden Truth</h2>
+                    <p id="darkResultText"></p>
+                </div>
+            </div>
         </main>
 
         <footer>
@@ -32,7 +39,7 @@
         </footer>
     </div>
 
-    <!-- Popup Modal -->
+    <!-- Timer Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
             <div class="modal-header">
@@ -58,6 +65,23 @@
             <div class="progress-bar-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
+        </div>
+    </div>
+
+    <!-- RED Question Modal -->
+    <div class="modal-overlay red-overlay" id="questionOverlay">
+        <div class="modal red-modal">
+            <div class="red-modal-header">
+                <p class="red-label">Warning</p>
+                <h2>Do you want to know<br>something more about<br>your future?</h2>
+            </div>
+
+            <div class="red-buttons">
+                <button id="yesBtn" class="btn-yes">Yes</button>
+                <button id="noBtn" class="btn-no">No</button>
+            </div>
+
+            <p class="red-warning">Some truths are not meant for everyone</p>
         </div>
     </div>
 
