@@ -93,6 +93,7 @@ h1 {
     transform: scale(0.98);
 }
 
+/* ===== RESULT SECTIONS ===== */
 .result-section {
     display: none;
     animation: fadeIn 0.6s ease;
@@ -125,6 +126,29 @@ h1 {
     letter-spacing: 0.5px;
 }
 
+/* Dark result (prediction #2) */
+.dark-result {
+    margin-top: 25px;
+}
+
+.dark-box {
+    border-color: #ff2222;
+    background-color: #0a0000;
+}
+
+.dark-heading {
+    color: #ff4444 !important;
+    letter-spacing: 4px !important;
+}
+
+#darkResultText {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #ffcccc;
+    letter-spacing: 0.5px;
+}
+
 footer {
     margin-top: 50px;
 }
@@ -137,7 +161,6 @@ footer p {
 }
 
 /* ===== MODAL STYLES ===== */
-
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -166,7 +189,6 @@ footer p {
     text-align: center;
     transform: translateY(15px);
     transition: transform 0.4s ease;
-    animation: none;
 }
 
 .modal-overlay.active .modal {
@@ -193,6 +215,7 @@ footer p {
     color: #ffffff;
 }
 
+/* Timer */
 .timer-container {
     display: flex;
     align-items: center;
@@ -227,7 +250,6 @@ footer p {
     stroke: #ffffff;
     stroke-width: 3;
     stroke-linecap: round;
-    transition: stroke-dashoffset 1s linear;
 }
 
 .timer-text {
@@ -274,7 +296,92 @@ footer p {
     height: 100%;
     width: 0%;
     background-color: #ffffff;
-    transition: width 1s linear;
+}
+
+/* ===== RED QUESTION MODAL ===== */
+.red-overlay {
+    background-color: rgba(10, 0, 0, 0.94);
+}
+
+.red-modal {
+    border: 1px solid #ff2222;
+    background-color: #050000;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+}
+
+.red-modal-header {
+    margin-bottom: 35px;
+}
+
+.red-label {
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #ff2222;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.red-modal h2 {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.red-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.btn-yes,
+.btn-no {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid;
+}
+
+.btn-yes {
+    background-color: #ff2222;
+    color: #ffffff;
+    border-color: #ff2222;
+}
+
+.btn-yes:hover {
+    background-color: #cc0000;
+    border-color: #cc0000;
+}
+
+.btn-no {
+    background-color: transparent;
+    color: #888888;
+    border-color: #444444;
+}
+
+.btn-no:hover {
+    color: #ffffff;
+    border-color: #888888;
+}
+
+.red-buttons button:active {
+    transform: scale(0.97);
+}
+
+.red-warning {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #661111;
+    font-style: italic;
 }
 
 @keyframes fadeIn {
@@ -296,6 +403,10 @@ footer p {
 
     #resultText {
         font-size: 1.1rem;
+    }
+
+    #darkResultText {
+        font-size: 1rem;
     }
 
     .modal {
@@ -329,5 +440,13 @@ footer p {
 
     .modal-message {
         font-size: 0.85rem;
+    }
+
+    .red-modal h2 {
+        font-size: 1.15rem;
+    }
+
+    .red-buttons {
+        flex-direction: column;
     }
 }
