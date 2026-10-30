@@ -136,6 +136,147 @@ footer p {
     text-transform: uppercase;
 }
 
+/* ===== MODAL STYLES ===== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    width: 100%;
+    max-width: 460px;
+    background-color: #000000;
+    border: 1px solid #333333;
+    padding: 40px 30px;
+    text-align: center;
+    transform: translateY(15px);
+    transition: transform 0.4s ease;
+    animation: none;
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0);
+}
+
+.modal-header {
+    margin-bottom: 35px;
+}
+
+.modal-label {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #666666;
+    margin-bottom: 12px;
+}
+
+#modalName {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.timer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.timer-circle {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: #222222;
+    stroke-width: 3;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear;
+}
+
+.timer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+#timerNumber {
+    font-size: 3.2rem;
+    font-weight: 200;
+    letter-spacing: 2px;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.timer-unit {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #666666;
+    margin-top: 8px;
+}
+
+.modal-message {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #cccccc;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 2px;
+    background-color: #222222;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #ffffff;
+    transition: width 1s linear;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -155,5 +296,38 @@ footer p {
 
     #resultText {
         font-size: 1.1rem;
+    }
+
+    .modal {
+        padding: 30px 20px;
+    }
+
+    #modalName {
+        font-size: 1.2rem;
+    }
+
+    .timer-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .progress-ring {
+        width: 150px;
+        height: 150px;
+    }
+
+    .progress-ring-bg,
+    .progress-ring-fill {
+        cx: 75;
+        cy: 75;
+        r: 66;
+    }
+
+    #timerNumber {
+        font-size: 2.6rem;
+    }
+
+    .modal-message {
+        font-size: 0.85rem;
     }
 }
