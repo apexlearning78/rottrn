@@ -28,8 +28,37 @@
         </main>
 
         <footer>
-            <p>Your future on rotten</p>
+            <p>Entertainment purpose only</p>
         </footer>
+    </div>
+
+    <!-- Popup Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <p class="modal-label">Analyzing</p>
+                <h2 id="modalName">Your Future</h2>
+            </div>
+
+            <div class="timer-container">
+                <div class="timer-circle">
+                    <svg class="progress-ring" width="180" height="180">
+                        <circle class="progress-ring-bg" cx="90" cy="90" r="80"></circle>
+                        <circle class="progress-ring-fill" id="progressRing" cx="90" cy="90" r="80"></circle>
+                    </svg>
+                    <div class="timer-text">
+                        <span id="timerNumber">59</span>
+                        <span class="timer-unit">seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="modal-message">Your future will show here after these seconds complete</p>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
