@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-image: radial-gradient(circle at 50% 0%, rgba(255, 0, 0, 0.06) 0%, transparent 60%);
+}
+
+.red-container {
+    width: 100%;
+    max-width: 620px;
+    text-align: center;
+    border: 1px solid #ff2222;
+    padding: 50px 35px;
+    background-color: #050000;
+    box-shadow: 0 0 60px rgba(255, 0, 0, 0.08);
+    animation: redFadeIn 0.9s ease;
+}
+
+.red-page-label {
+    font-size: 0.7rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #ff2222;
+    margin-bottom: 22px;
+    font-weight: 600;
+}
+
+.red-page-title {
+    font-size: 2rem;
+    font-weight: 200;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.red-name-display {
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #ff8888;
+    margin-bottom: 25px;
+}
+
+.red-divider {
+    width: 60px;
+    height: 1px;
+    background-color: #ff2222;
+    margin: 0 auto 30px;
+    opacity: 0.6;
+}
+
+.red-prediction-box {
+    padding: 10px 0 25px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#darkResultText {
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: #ffcccc;
+    letter-spacing: 0.5px;
+    animation: textReveal 1.2s ease;
+}
+
+.red-footnote {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #661111;
+    font-style: italic;
+    margin-bottom: 35px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888888;
+    background-color: transparent;
+    border: 1px solid #444444;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #ffffff;
+    border-color: #ff2222;
+    background-color: rgba(255, 0, 0, 0.05);
+}
+
+@keyframes redFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        letter-spacing: 8px;
+    }
+    to {
+        opacity: 1;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .red-container {
+        padding: 40px 22px;
+    }
+
+    .red-page-title {
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+    }
+
+    .red-name-display {
+        font-size: 0.95rem;
+        letter-spacing: 3px;
+    }
+
+    #darkResultText {
+        font-size: 1.05rem;
+        line-height: 1.8;
+    }
+
+    .back-btn {
+        padding: 12px 30px;
+        font-size: 0.8rem;
+    }
+}
