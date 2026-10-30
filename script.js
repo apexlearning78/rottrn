@@ -3,6 +3,14 @@ const predictBtn = document.getElementById('predictBtn');
 const resultSection = document.getElementById('resultSection');
 const resultText = document.getElementById('resultText');
 
+const modalOverlay = document.getElementById('modalOverlay');
+const modalName = document.getElementById('modalName');
+const timerNumber = document.getElementById('timerNumber');
+const progressBar = document.getElementById('progressBar');
+const progressRing = document.getElementById('progressRing');
+
+const TOTAL_SECONDS = 59;
+
 const predictions = [
     "You will achieve great success in the coming years through dedication and hard work.",
     "A major opportunity will come your way when you least expect it. Stay prepared.",
@@ -26,6 +34,14 @@ const predictions = [
     "Great things are coming your way. Trust the journey and keep moving forward."
 ];
 
+// Ring circumference
+const RADIUS = 80;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+progressRing.style.strokeDasharray = CIRCUMFERENCE;
+progressRing.style.strokeDashoffset = 0;
+
+let timerInterval = null;
+
 function getPrediction(name) {
     let hash = 0;
     for (let i = 0; i < name.length; i++) {
@@ -34,6 +50,49 @@ function getPrediction(name) {
     hash = Math.abs(hash);
     const index = hash % predictions.length;
     return predictions[index];
+}
+
+function startCountdown() {
+    let remaining = TOTAL_SECONDS;
+    timerNumber.textContent = remaining;
+    progressBar.style.width = '0%';
+    progressRing.style.strokeDashoffset = 0;
+
+    // Trigger transition after reset
+    requestAnimationFrame(() => {
+        progressBar.style.width = '100%';
+        progressRing.style.strokeDashoffset = CIRCUMFERENCE;
+    });
+
+    timerInterval = setInterval(() => {
+        remaining--;
+        if (remaining < 0) remaining = 0;
+        timerNumber.textContent = remaining;
+
+        if (remaining <= 0) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            finishCountdown();
+        }
+    }, 1000);
+}
+
+function finishCountdown() {
+    // Small delay so user sees 0 before closing
+    setTimeout(() => {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        showResult();
+    }, 500);
+}
+
+function showResult() {
+    const name = nameInput.value.trim();
+    resultText.textContent = getPrediction(name);
+    resultSection.classList.remove('visible');
+    void resultSection.offsetWidth;
+    resultSection.classList.add('visible');
+    resultSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function predictFuture() {
@@ -49,10 +108,22 @@ function predictFuture() {
         return;
     }
 
-    resultText.textContent = getPrediction(name);
+    // Reset previous state
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
     resultSection.classList.remove('visible');
-    void resultSection.offsetWidth;
-    resultSection.classList.add('visible');
+
+    // Set modal name
+    modalName.textContent = name;
+
+    // Open modal
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Start countdown
+    startCountdown();
 }
 
 predictBtn.addEventListener('click', predictFuture);
