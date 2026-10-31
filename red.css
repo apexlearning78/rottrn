@@ -13,23 +13,23 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-image: radial-gradient(circle at 50% 0%, rgba(255, 0, 0, 0.06) 0%, transparent 60%);
+    background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
 }
 
 .red-container {
     width: 100%;
-    max-width: 620px;
+    max-width: 680px;
     text-align: center;
-    border: 1px solid #ff2222;
-    padding: 50px 35px;
-    background-color: #050000;
-    box-shadow: 0 0 60px rgba(255, 0, 0, 0.08);
+    border: 1px solid #ffffff;
+    padding: 55px 40px;
+    background-color: #030303;
+    box-shadow: 0 0 80px rgba(255, 255, 255, 0.04);
     animation: redFadeIn 0.9s ease;
 }
 
 .red-page-label {
     font-size: 0.7rem;
-    letter-spacing: 6px;
+    letter-spacing: 7px;
     text-transform: uppercase;
     color: #ff2222;
     margin-bottom: 22px;
@@ -37,51 +37,70 @@ body {
 }
 
 .red-page-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 200;
-    letter-spacing: 6px;
+    letter-spacing: 7px;
     text-transform: uppercase;
     color: #ffffff;
     margin-bottom: 30px;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
 .red-name-display {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 300;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    color: #ff8888;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.red-dob-display {
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #888888;
     margin-bottom: 25px;
 }
 
 .red-divider {
-    width: 60px;
+    width: 70px;
     height: 1px;
-    background-color: #ff2222;
-    margin: 0 auto 30px;
-    opacity: 0.6;
+    background-color: #ffffff;
+    margin: 0 auto 35px;
+    opacity: 0.4;
 }
 
 .red-prediction-box {
-    padding: 10px 0 25px;
-    min-height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 15px 0 30px;
+    min-height: 140px;
+    text-align: left;
 }
 
-#darkResultText {
-    font-size: 1.25rem;
+#darkResultMain {
+    font-size: 1.2rem;
     font-weight: 300;
     line-height: 1.9;
-    color: #ffcccc;
-    letter-spacing: 0.5px;
+    color: #ffffff;
+    letter-spacing: 0.4px;
+    margin-bottom: 25px;
     animation: textReveal 1.2s ease;
 }
 
+.dark-detail {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.95;
+    color: #bbbbbb;
+    letter-spacing: 0.3px;
+    padding-top: 25px;
+    border-top: 1px solid #222222;
+    animation: textReveal 1.6s ease;
+}
+
 .red-footnote {
-    font-size: 0.75rem;
-    letter-spacing: 3px;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: #661111;
     font-style: italic;
@@ -90,22 +109,24 @@ body {
 
 .back-btn {
     display: inline-block;
-    padding: 14px 40px;
-    font-size: 0.85rem;
+    padding: 15px 45px;
+    font-size: 0.8rem;
     font-weight: 500;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: #888888;
     background-color: transparent;
     border: 1px solid #444444;
     text-decoration: none;
     transition: all 0.3s ease;
+    font-family: inherit;
 }
 
 .back-btn:hover {
     color: #ffffff;
-    border-color: #ff2222;
-    background-color: rgba(255, 0, 0, 0.05);
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
 }
 
 @keyframes redFadeIn {
@@ -126,7 +147,7 @@ body {
     }
     to {
         opacity: 1;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.4px;
     }
 }
 
@@ -141,17 +162,26 @@ body {
     }
 
     .red-name-display {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         letter-spacing: 3px;
     }
 
-    #darkResultText {
-        font-size: 1.05rem;
+    .red-dob-display {
+        font-size: 0.7rem;
+    }
+
+    #darkResultMain {
+        font-size: 1.02rem;
         line-height: 1.8;
     }
 
+    .dark-detail {
+        font-size: 0.9rem;
+        line-height: 1.85;
+    }
+
     .back-btn {
-        padding: 12px 30px;
-        font-size: 0.8rem;
+        padding: 13px 32px;
+        font-size: 0.75rem;
     }
 }
