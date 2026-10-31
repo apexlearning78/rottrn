@@ -10,12 +10,13 @@
     <div class="container">
         <header>
             <h1>Future Predictor</h1>
-            <p class="subtitle">Enter your name to reveal what the future holds</p>
+            <p class="subtitle">Enter your details to reveal what the future holds</p>
         </header>
 
         <main>
             <div class="input-section">
-                <input type="text" id="nameInput" placeholder="Enter your name..." autocomplete="off">
+                <input type="text" id="nameInput" placeholder="Enter your full name..." autocomplete="off">
+                <input type="date" id="dobInput" class="dob-input">
                 <button id="predictBtn">Predict Future</button>
             </div>
 
@@ -23,6 +24,7 @@
                 <div class="result-box">
                     <h2>Your Future</h2>
                     <p id="resultText"></p>
+                    <p id="resultDetail" class="result-detail"></p>
                 </div>
             </div>
         </main>
@@ -32,7 +34,26 @@
         </footer>
     </div>
 
-    <!-- Timer Modal -->
+    <!-- ===== REAL INFO CONFIRMATION POPUP (RED) ===== -->
+    <div class="modal-overlay red-overlay" id="confirmOverlay">
+        <div class="modal red-modal">
+            <div class="red-modal-header">
+                <p class="red-label">Verify</p>
+                <h2>Is your name and date of birth real and correct?</h2>
+            </div>
+
+            <p class="confirm-note">If not, please leave this website immediately. False information may give you a false future.</p>
+
+            <div class="red-buttons">
+                <button id="confirmYes" class="btn-yes">Yes, It Is Real</button>
+                <button id="confirmNo" class="btn-no">No, Leave</button>
+            </div>
+
+            <p class="red-warning">Your identity matters</p>
+        </div>
+    </div>
+
+    <!-- ===== 30 SEC TIMER POPUP ===== -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
             <div class="modal-header">
@@ -47,7 +68,7 @@
                         <circle class="progress-ring-fill" id="progressRing" cx="90" cy="90" r="80"></circle>
                     </svg>
                     <div class="timer-text">
-                        <span id="timerNumber">59</span>
+                        <span id="timerNumber">30</span>
                         <span class="timer-unit">seconds</span>
                     </div>
                 </div>
@@ -61,7 +82,7 @@
         </div>
     </div>
 
-    <!-- RED Question Modal -->
+    <!-- ===== MORE FUTURE QUESTION POPUP (RED) ===== -->
     <div class="modal-overlay red-overlay" id="questionOverlay">
         <div class="modal red-modal">
             <div class="red-modal-header">
