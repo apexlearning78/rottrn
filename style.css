@@ -13,6 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
 }
 
 .container {
@@ -28,17 +29,18 @@ header {
 h1 {
     font-size: 2.5rem;
     font-weight: 300;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
     text-transform: uppercase;
     color: #ffffff;
     margin-bottom: 15px;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
 .subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 300;
-    color: #aaaaaa;
-    letter-spacing: 1px;
+    color: #999999;
+    letter-spacing: 2px;
 }
 
 .input-section {
@@ -48,7 +50,8 @@ h1 {
     margin-bottom: 40px;
 }
 
-#nameInput {
+#nameInput,
+.dob-input {
     padding: 15px 20px;
     font-size: 1rem;
     background-color: #000000;
@@ -59,22 +62,36 @@ h1 {
     letter-spacing: 1px;
     text-align: center;
     transition: all 0.3s ease;
+    font-family: inherit;
 }
 
 #nameInput::placeholder {
     color: #666666;
 }
 
-#nameInput:focus {
+#nameInput:focus,
+.dob-input:focus {
     background-color: #111111;
     border-color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+/* Date input calendar icon white */
+.dob-input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.dob-input::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
 }
 
 #predictBtn {
     padding: 15px 20px;
     font-size: 1rem;
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     background-color: #ffffff;
     color: #000000;
@@ -87,15 +104,17 @@ h1 {
 #predictBtn:hover {
     background-color: #000000;
     color: #ffffff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
 }
 
 #predictBtn:active {
     transform: scale(0.98);
 }
 
+/* ===== RESULT SECTION ===== */
 .result-section {
     display: none;
-    animation: fadeIn 0.6s ease;
+    animation: fadeIn 0.8s ease;
 }
 
 .result-section.visible {
@@ -104,25 +123,39 @@ h1 {
 
 .result-box {
     border: 1px solid #ffffff;
-    padding: 30px 25px;
+    padding: 35px 30px;
     text-align: center;
+    background-color: #050505;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
 }
 
 .result-box h2 {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 300;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    color: #aaaaaa;
-    margin-bottom: 20px;
+    color: #888888;
+    margin-bottom: 25px;
 }
 
 #resultText {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.8;
     color: #ffffff;
     letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.result-detail {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: #cccccc;
+    letter-spacing: 0.3px;
+    padding-top: 20px;
+    border-top: 1px solid #222222;
+    text-align: left;
 }
 
 footer {
@@ -130,9 +163,9 @@ footer {
 }
 
 footer p {
-    font-size: 0.8rem;
-    color: #555555;
-    letter-spacing: 1px;
+    font-size: 0.75rem;
+    color: #444444;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
@@ -140,7 +173,7 @@ footer p {
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.92);
+    background-color: rgba(0, 0, 0, 0.94);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -158,10 +191,10 @@ footer p {
 
 .modal {
     width: 100%;
-    max-width: 460px;
+    max-width: 480px;
     background-color: #000000;
     border: 1px solid #333333;
-    padding: 40px 30px;
+    padding: 45px 35px;
     text-align: center;
     transform: translateY(15px);
     transition: transform 0.4s ease;
@@ -176,21 +209,22 @@ footer p {
 }
 
 .modal-label {
-    font-size: 0.75rem;
-    letter-spacing: 4px;
+    font-size: 0.7rem;
+    letter-spacing: 5px;
     text-transform: uppercase;
     color: #666666;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 #modalName {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 300;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: #ffffff;
 }
 
+/* ===== TIMER ===== */
 .timer-container {
     display: flex;
     align-items: center;
@@ -240,22 +274,23 @@ footer p {
     letter-spacing: 2px;
     color: #ffffff;
     line-height: 1;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 .timer-unit {
-    font-size: 0.7rem;
-    letter-spacing: 3px;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: #666666;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .modal-message {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 300;
-    color: #cccccc;
+    color: #bbbbbb;
     line-height: 1.7;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     margin-bottom: 30px;
     padding: 0 10px;
 }
@@ -271,26 +306,27 @@ footer p {
     height: 100%;
     width: 0%;
     background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* ===== RED QUESTION MODAL ===== */
+/* ===== RED MODALS ===== */
 .red-overlay {
-    background-color: rgba(10, 0, 0, 0.94);
+    background-color: rgba(8, 0, 0, 0.96);
 }
 
 .red-modal {
     border: 1px solid #ff2222;
     background-color: #050000;
-    box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+    box-shadow: 0 0 60px rgba(255, 0, 0, 0.2);
 }
 
 .red-modal-header {
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .red-label {
-    font-size: 0.75rem;
-    letter-spacing: 5px;
+    font-size: 0.7rem;
+    letter-spacing: 6px;
     text-transform: uppercase;
     color: #ff2222;
     margin-bottom: 18px;
@@ -298,24 +334,36 @@ footer p {
 }
 
 .red-modal h2 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 300;
-    letter-spacing: 1px;
-    line-height: 1.6;
+    letter-spacing: 1.5px;
+    line-height: 1.7;
     color: #ffffff;
+}
+
+.confirm-note {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #aa8888;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #331111;
+    background-color: rgba(255, 0, 0, 0.03);
 }
 
 .red-buttons {
     display: flex;
     gap: 15px;
-    margin-bottom: 28px;
+    margin-bottom: 25px;
 }
 
 .btn-yes,
 .btn-no {
     flex: 1;
-    padding: 15px 20px;
-    font-size: 1rem;
+    padding: 15px 15px;
+    font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -323,6 +371,7 @@ footer p {
     cursor: pointer;
     transition: all 0.3s ease;
     border: 1px solid;
+    font-family: inherit;
 }
 
 .btn-yes {
@@ -334,6 +383,7 @@ footer p {
 .btn-yes:hover {
     background-color: #cc0000;
     border-color: #cc0000;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
 }
 
 .btn-no {
@@ -352,8 +402,8 @@ footer p {
 }
 
 .red-warning {
-    font-size: 0.75rem;
-    letter-spacing: 2px;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: #661111;
     font-style: italic;
@@ -373,19 +423,27 @@ footer p {
 @media (max-width: 480px) {
     h1 {
         font-size: 1.8rem;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
     }
 
     #resultText {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+    }
+
+    .result-detail {
+        font-size: 0.9rem;
     }
 
     .modal {
-        padding: 30px 20px;
+        padding: 35px 22px;
     }
 
     #modalName {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .timer-circle {
@@ -403,14 +461,18 @@ footer p {
     }
 
     .modal-message {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .red-modal h2 {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
     }
 
     .red-buttons {
         flex-direction: column;
+    }
+
+    .confirm-note {
+        font-size: 0.75rem;
     }
 }
